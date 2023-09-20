@@ -1,8 +1,33 @@
-{% extends "base_auth.html" %} {%block content%}
-<div class="card">
-  <div class="card-body">
-    <h1>Login</h1>
-  </div>
-</div>
+{% extends "base_auth.html" %} {% load static %} {% block content %}
+<div class="signup-body">
+  <section class="wrapper">
+    <div class="form signup">
+      <header>Signup</header>
+      <form action="#" method="post">
+        <input
+          class="form"
+          type="text"
+          placeholder="Full Name"
+          id="usernamefield"
+          required
+        />
+        <div
+          class="invalid_feedback invalid-feedback"
+          style="display: none"
+        ></div>
+        <input type="email" placeholder="Email" required />
 
-{%endblock content%}
+        <input type="password" placeholder="Password" required />
+
+        <small class="show-btn">SHOW</small>
+        <div class="checkbox">
+          <input type="checkbox" id="signupCheck" />
+          <label for="signupCheck">I accept all terms & conditions</label>
+        </div>
+        <input type="submit" value="Signup" />
+      </form>
+    </div>
+  </section>
+</div>
+<script src="{% static 'js/register.js' %}"></script>
+{% endblock content %}
