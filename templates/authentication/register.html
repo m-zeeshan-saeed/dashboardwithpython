@@ -3,28 +3,60 @@
   <section class="wrapper">
     <div class="form signup">
       <header>Signup</header>
-      <form action="#" method="post">
+      <form action="{% url "register" %}" method="post">
+        {% csrf_token %}
+        {% include "partials/_messages.html" %}
         <input
+
+        name="username"
           class="form"
           type="text"
           placeholder="Full Name"
           id="usernamefield"
+
+          value="{{fieldValues.username}}"
           required
+
+
         />
         <div
           class="invalid_feedback invalid-feedback"
           style="display: none"
         ></div>
-        <input type="email" placeholder="Email" required />
+        <input
+        name="email"
+          class="form"
+          type="email"
+          placeholder="Email"
+          id="emailfield"
+          required
+          value="{{fieldValues.email}}"
+        />
+        <div
+          class="emailFeedBackArea invalid-feedback"
+          style="display: none"
+        ></div>
+        <div>
+          <input
+          name="password"
+            style="display: flex; height: 60px; width: -webkit-fill-available"
+            id="passwordfield"
+            type="password"
+            placeholder="Password"
+            required
+          />
 
-        <input type="password" placeholder="Password" required />
-
-        <small class="show-btn">SHOW</small>
+          <small
+            class="float-right py-3 showPasswordToggle"
+            style="color: white"
+            >SHOW</small
+          >
+        </div>
         <div class="checkbox">
           <input type="checkbox" id="signupCheck" />
           <label for="signupCheck">I accept all terms & conditions</label>
         </div>
-        <input type="submit" value="Signup" />
+        <input type="submit" value="Signup" class="submit-btn" />
       </form>
     </div>
   </section>
